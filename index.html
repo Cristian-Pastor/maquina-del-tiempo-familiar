@@ -3,29 +3,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>La Máquina del Tiempo Familiar</title>
+
+<title>⚡ La Máquina del Tiempo Familiar ⚡</title>
+
 <style>
+
 body{
 margin:0;
 background:#030712;
 color:white;
 font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:15px;
+}
+
+.title{
 text-align:center;
-}
-h1{
+font-size:2rem;
 color:#7df9ff;
+margin-top:15px;
 }
+
+.subtitle{
+text-align:center;
+color:#cdefff;
+margin-bottom:20px;
+}
+
+.flux{
+height:140px;
+width:180px;
+margin:auto;
+position:relative;
+}
+
+.line{
+position:absolute;
+background:#7df9ff;
+box-shadow:0 0 15px #7df9ff;
+animation:pulse 1.2s infinite;
+}
+
+.l1{
+width:6px;
+height:120px;
+left:87px;
+}
+
+.l2{
+width:6px;
+height:90px;
+left:45px;
+top:45px;
+transform:rotate(35deg);
+}
+
+.l3{
+width:6px;
+height:90px;
+left:129px;
+top:45px;
+transform:rotate(-35deg);
+}
+
+@keyframes pulse{
+50%{
+opacity:.3;
+}
+}
+
+.panel{
+background:#07111d;
+border:1px solid #14304a;
+border-radius:18px;
+padding:15px;
+margin-bottom:20px;
+}
+
+.panel-title{
+font-size:1.3rem;
+margin-bottom:10px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:15px;
+}
+
+.green{
+color:#00ff66;
+}
+
+.pink{
+color:#ff80d5;
+}
+
+.blue{
+color:#65c8ff;
+}
+
+.orange{
+color:#ffb347;
+}
+
+.progress{
+height:22px;
+background:#111;
+border-radius:20px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.bar{
+height:100%;
+width:0%;
+}
+
+.placeholder{
+opacity:.7;
+}
+
+@media(max-width:600px){
+
+.title{
+font-size:1.5rem;
+}
+
+}
+
 </style>
 </head>
+
 <body>
-<div>
-<h1>⚡ LA MÁQUINA DEL TIEMPO FAMILIAR ⚡</h1>
-<p>Web en construcción.</p>
-<p>Si ves este mensaje, GitHub Pages funciona correctamente.</p>
+
+<div class="container">
+
+<div class="title">
+⚡ LA MÁQUINA DEL TIEMPO FAMILIAR ⚡
 </div>
+
+<div class="subtitle">
+Cristian · Lorena · Leo · Alex
+</div>
+
+<div class="flux">
+<div class="line l1"></div>
+<div class="line l2"></div>
+<div class="line l3"></div>
+</div>
+
+<div class="panel">
+<div class="panel-title">
+⚡ Panel Familiar
+</div>
+
+<div id="familia" class="placeholder">
+Cargando datos familiares...
+</div>
+</div>
+
+<div class="grid">
+
+<div class="panel">
+<div class="panel-title green">
+🟢 Cristian
+</div>
+
+<div id="cristian">
+Preparando panel...
+</div>
+
+<div class="progress">
+<div id="cristianBar" class="bar" style="background:#00ff66"></div>
+</div>
+
+</div>
+
+<div class="panel">
+<div class="panel-title pink">
+🩷 Lorena
+</div>
+
+<div id="lorena">
+Preparando panel...
+</div>
+
+<div class="progress">
+<div id="lorenaBar" class="bar" style="background:#ff80d5"></div>
+</div>
+
+</div>
+
+<div class="panel">
+<div class="panel-title blue">
+🔵 Leo
+</div>
+
+<div id="leo">
+Preparando panel...
+</div>
+
+<div class="progress">
+<div id="leoBar" class="bar" style="background:#65c8ff"></div>
+</div>
+
+</div>
+
+<div class="panel">
+<div class="panel-title orange">
+🟠 Alex
+</div>
+
+<div id="alex">
+Preparando panel...
+</div>
+
+<div class="progress">
+<div id="alexBar" class="bar" style="background:#ffb347"></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </body>
 </html>
