@@ -372,7 +372,120 @@ Math.min(d.años,100)+"%";
 
 }
 
-function actualizarFamilia(){
+function function actualizarFamilia(){
+
+const ahora = new Date();
+
+const inicio =
+new Date("2026-05-14T19:32:00");
+
+const diasFamilia =
+Math.floor(
+(ahora - inicio)/86400000
+);
+
+const nombres = Object.keys(personas);
+
+let sumaAnios = 0;
+let sumaDiasVividos = 0;
+
+let masJoven = "";
+let masVeterano = "";
+
+let fechaMasJoven = new Date(0);
+let fechaMasVeterano = new Date();
+
+let proximoNombre = "";
+let proximoFecha = null;
+
+for(const nombre of nombres){
+
+const fecha = personas[nombre].fecha;
+
+const datos = obtenerDatos(fecha);
+
+sumaAnios += datos.años;
+
+sumaDiasVividos +=
+Math.floor(
+(ahora-fecha)/86400000
+);
+
+if(fecha > fechaMasJoven){
+fechaMasJoven = fecha;
+masJoven = nombre;
+}
+
+if(fecha < fechaMasVeterano){
+fechaMasVeterano = fecha;
+masVeterano = nombre;
+}
+
+if(
+!proximoFecha ||
+datos.proximo < proximoFecha
+){
+proximoFecha = datos.proximo;
+proximoNombre = nombre;
+}
+
+}
+
+document.getElementById("familia").innerHTML = `
+
+<b>Tiempo juntos como familia</b>
+
+<br><br>
+
+${diasFamilia} días
+
+<hr>
+
+<b>Edad total combinada</b>
+
+<br>
+
+${sumaAnios} años
+
+<hr>
+
+<b>Días vividos entre todos</b>
+
+<br>
+
+${sumaDiasVividos.toLocaleString('es-ES')}
+
+<hr>
+
+<b>Próximo cumpleaños</b>
+
+<br>
+
+${proximoNombre}
+
+<br>
+
+${proximoFecha.toLocaleDateString('es-ES')}
+
+<hr>
+
+<b>Miembro más joven</b>
+
+<br>
+
+${masJoven}
+
+<hr>
+
+<b>Miembro más veterano</b>
+
+<br>
+
+${masVeterano}
+
+`;
+
+}
 
 const inicio =
 new Date("2026-05-14T19:32:00");
